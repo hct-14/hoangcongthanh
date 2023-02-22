@@ -1,0 +1,23 @@
+.header{
+    background-color:rgb(93, 93, 201);
+    padding 5px;
+    font-size: 30px;
+    text-align: light ;
+    width:auto;
+
+
+}
+.header{
+    color:rgb(241, 241, 249);
+}
+.grid-container {
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-gap: 20px;
+}
+.grid-container img {
+    width: 400px;
+	object-fit: cover;
+}
