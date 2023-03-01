@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Check Array Nesting</title>
+  </head>
+  <body>
+    <label for="array1">Array 1: </label>
+    <input type="text" id="array1" /><br /><br />
+    <label for="array2">Array 2: </label>
+    <input type="text" id="array2" /><br /><br />
+    <button onclick="checkNesting()">Check Nesting</button>
+    <p id="result"></p>
+
+    <script>
+      function checkNesting() {
+        // Lấy giá trị của 2 mảng
+        const arr1 = document
+          .getElementById('array1')
+          .value.split(',')
+          .map(Number)
+        const arr2 = document
+          .getElementById('array2')
+          .value.split(',')
+          .map(Number)
+        // Tìm giá trị nhỏ nhất trong mảng 1
+        const min1 = Math.min(...arr1)
+        // Tìm giá trị nhỏ nhất trong mảng 2
+        const min2 = Math.min(...arr2)
+        // Tìm giá trị lớn nhất trong mảng 1
+        const max1 = Math.max(...arr1)
+        // Tìm giá trị lớn nhất trong mảng 2
+        const max2 = Math.max(...arr2)
+        // Kiểm tra điều kiện
+        if (min1 > min2 && max1 < max2) {
+          document.getElementById('result').textContent = 'True'
+        } else {
+          document.getElementById('result').textContent = 'False'
+        }
+      }
+    </script>
+  </body>
+</html>

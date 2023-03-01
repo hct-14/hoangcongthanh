@@ -1,44 +1,48 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table>
-        <tr>
-            <td> Name </td>
-            <td> <input tyle = "text" Name = "Name" Value =""</td>
-        </tr>
-        <tr>
-            <td> Name </td>
-            <td> <input tyle = "Email" Name = "Name" Value =""</td>
-        </tr>
-        <tr>
-            <td>Gender</td>
-            <td>
-                <label>
-                    <input type="checkbox" name="gender" value="">
-                    Male
-                </label>
-                
-                <label>
-                    <input type="checkbox" name="gender" value="">
-                    Female
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <button type="submit">Register</button>
-            </td>
-        </tr>
-    </table>
+<html>
+  <head>
+    <title>Tính điểm trung bình và xếp loại</title>
+  </head>
+  <body>
+    <h1>Tính điểm trung bình và xếp loại</h1>
+    <label for="scores">Nhập các điểm (phân cách bởi dấu phẩy): </label>
+    <input type="text" id="scores" />
+    <button onclick="calculate()">Tính</button>
+    <p>Điểm trung bình của bạn là: <span id="average"></span></p>
+    <p>Xếp loại của bạn là: <span id="grade"></span></p>
 
-    
-</body>
+    <script>
+      function calculate() {
+        const scoresStr = document.getElementById('scores').value
+        const scoresArr = scoresStr.split(',')
+        let totalScore = 0
+        let averageScore = 0
+
+        for (let i = 0; i < scoresArr.length; i++) {
+          totalScore += parseFloat(scoresArr[i])
+        }
+
+        if (scoresArr.length > 0) {
+          averageScore = totalScore / scoresArr.length
+        }
+
+        let grade
+
+        if (averageScore >= 91 && averageScore <= 100) {
+          grade = 'A'
+        } else if (averageScore >= 81 && averageScore <= 90) {
+          grade = 'B'
+        } else if (averageScore >= 71 && averageScore <= 80) {
+          grade = 'C'
+        } else if (averageScore >= 0 && averageScore <= 70) {
+          grade = 'D'
+        } else {
+          grade = 'Không xác định'
+        }
+
+        document.getElementById('average').innerHTML = averageScore.toFixed(2)
+        document.getElementById('grade').innerHTML = grade
+      }
+    </script>
+  </body>
 </html>
